@@ -43,9 +43,7 @@ def profile(request):
     
     context = {
         'u_form': u_form,
-        'p_form': p_form
-        
-        
+        'p_form': p_form    
     }
     return render(request, 'profile.html', context)
 
@@ -64,4 +62,11 @@ def search_results(request):
         message = "You haven't searched for any user"
         return render(request, 'search.html',{"message":message})
 
+@login_required(login_url='login')
+def project(request, project_id):
+    try:
+        project = Projects.objects.get(id=project_id)
+    except Projects.DoesNotExist:
+        raise Http404()
+    return render(request, "project.html", {'project':project})
 
