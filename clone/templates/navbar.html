@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <nav id="sidebar">
     <div class="sidebar-header">
-        <h3>Awwards</h3>
+        <h1><a href="/">Awwards</a></h1>
     </div>
 
     <ul class="list-unstyled components">
@@ -50,8 +50,20 @@
         <li>
             <a href="#">Portfolio</a>
         </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
+        <!-- Adding a search form  -->
+
+
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search project" name="projects">
+                <div class="input-group-btn">
+                    <button class="btn btn-success" type="submit">search</button>
+                </div>
+            </div>
+
+        </form>
+
+        <!-- search form end -->
     </ul>
 </nav>

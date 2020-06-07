@@ -59,6 +59,35 @@ class Projects(models.Model):
     def __str__(self):
         return self.project_name
 
+    def save_projects(self):
+        """
+        method saves entered projects to the database
+        """
+        save()
+
+    def update_projects(self, using=None, fields=None, **kwargs):
+        """
+        method updates saved projects
+        """
+        if fields is not None:
+            fields = set(fields)
+            deferred_fields = self.get_deferred_fields()
+            if fields.intersection(deferred_fields):
+                fields = fields.union(deferred_fields)
+        super().refresh_from_db(using, fields, **kwargs)
+
+    @classmethod
+    def get_projects(cls,project_search):
+        project = cls.objects.filter(project__project_name__icontains=project_search)
+        return project
+
+
+    def delete_projects(self):
+        """
+        method deletes entered projects to the database
+        """
+        self.delete()
+
 class Image(models.Model):
     image = models.ImageField(upload_to='images/')
     description = models.CharField(max_length=100, blank=True)

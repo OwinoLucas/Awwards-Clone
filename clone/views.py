@@ -49,8 +49,19 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
-# @login_required(login_url='login')
-# def myprofileview(request, username):
-#     person = profile.objects.get(user = request.user)
-#     return render(request,'profile.html',{'person':person})
+def search_results(request):
+    """
+    view function returns the searched projects
+    """
+    if 'projects' in request.GET and request.GET["projects"]:
+        project_search = request.GET.get("projects")
+        searched_projects = Projects.get_projects(project_search)
+        message = f"{project_search}"
+
+        return render(request, 'search.html',{"message":message,"projects": searched_users})
+
+    else:
+        message = "You haven't searched for any user"
+        return render(request, 'search.html',{"message":message})
+
 
