@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import EventsSerializer
 from rest_framework import status
+from .permissions import IsAdminOrReadOnly
 
 
 # Create your views here.
@@ -105,6 +106,7 @@ class EventList(APIView):
 
     def post(self, request, formart=None):
         serializers = EventsSerializer(data=request.data)
+        permission_classes = (IsAdminOrReadOnly,)
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
