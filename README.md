@@ -1,22 +1,18 @@
 # Awwards Clone
 
-> [Lucas](https://github.com/OwinoLucas)
+> [By Lucas Otieno Owino](https://github.com/OwinoLucas)
 
 # Description
 This project allows users to post their projects for other users to rate according to design, usability and content.
-
 ## Live Link
-
+[https://cloneawwards.herokuapp.com/](link)
 Click [View Site](https://cloneawwards.herokuapp.com/) to visit the site
-
 ## Behavior Driven Development
-
 | Behavior            | Input                         | Output                        |
 | ------------------- | ----------------------------- | ----------------------------- |
 | View posted projects | None | Display all projects |
 | Authenticate users | text inputs | create a profile after reqistration and log in|
 | Star rate a project| click a button| user leaves a rating based on options provided|
-
 ## Screenshots
 * Home Page
 ![Screenshot from 2020-06-09 01-38-16](https://user-images.githubusercontent.com/60548928/84087131-2ec40700-a9f2-11ea-8340-974e3f0b218f.png)
@@ -31,62 +27,25 @@ Click [View Site](https://cloneawwards.herokuapp.com/) to visit the site
 - Search for projects.
 - View projects overall score.
 - A user can view their profile page.
-## Setup and Installation
+## System Features
+* Projects should have a Title, an image of the project's landing page, a detailed description of the project, a link to the live site.
+* Your project should have a user profile that at least the following information:
 
-To get the project:
+- Profile picture of the user
+- User Bio
+- Projects the user has posted
+- A contact information of the user
+* Your application should have a solid authentication system that allows users to sign up or log in to the application before posting or rating a project.
+* Projects will be rated/reviewed based on the following criteria:
 
-##### Cloning the repository:
+- Design - This is the overall appearance of the project
+- Usability - This can be translated to the user experience and how responsive the project is.
+- Content - This includes the technologies used, the font used(is it uniform throughout the project) and grammar
+* These criteria will each be rated/review on a scale of 1-10 and the overall score will be their average
+* You should create an API so that users can access data from your application. You can create two API endpoints:
 
-```bash
-https://github.com/default-007/awwwards.git
-```
-
-##### Navigate into the folder and install requirements
-
-```bash
-cd project-awwards pip install -r requirements.txt
-```
-
-##### Install and activate Virtual
-
-```bash
-- python3 -m venv virtual - source venv/bin/activate
-```
-
-##### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-##### Setup Database
-
-SetUp your database User,Password, Host then make migrate
-
-```bash
-python manage.py makemigrations instagram
-```
-
-Now Migrate
-
-```bash
-python manage.py migrate
-```
-
-##### Run the application
-
-```bash
-python manage.py runserver
-```
-
-##### Testing the application
-
-```bash
-python manage.py test
-```
-
-Open the application on your browser `127.0.0.1:8000`.
-
+- Profile - This endpoint should return all the user profiles with information such as the username, bio, projects of the user and profile picture
+- Projects- This endpoint should return information pertaining to all the projects posted in your application.
 ### Api Endpoints
 
 ## Technical Requirements
@@ -95,18 +54,12 @@ Open the application on your browser `127.0.0.1:8000`.
 * Your project should follow the proper folder structure.
 * Your project should be deployed to Heroku.
 * Your project should contain proper commit messages.
-
 ## Technology used
-
 - [Python3.6.9](https://www.python.org/)
 - [Django 3.0.6](https://docs.djangoproject.com/en/2.2/)
 - [Heroku](https://heroku.com)
-
-
 ## Contact Information
-
 If you have any question or contributions, please email me at [lucowish35@gmail.com]
-
 ## License
 Copyright (c) [2020] [Lucas Otieno]
 
