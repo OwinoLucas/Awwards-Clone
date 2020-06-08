@@ -7,7 +7,7 @@ This project allows users to post their projects for other users to rate accordi
 
 ## Live Link
 
-Click [View Site](https://awwwards-007.herokuapp.com/) to visit the site
+Click [View Site](https://cloneawwards.herokuapp.com/) to visit the site
 
 ## Behavior Driven Development
 
