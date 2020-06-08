@@ -12,7 +12,9 @@ urlpatterns=[
     url(r'^post/', views.upload_form, name='post'),
     url(r'^api/events/$', views.EventList.as_view()),
     url(r'api/events/event-id/(?P<pk>[0-9]+)/$',
-        views.EventDescription.as_view())
+        views.EventDescription.as_view()),
+    url(r'^api/profiles/$', views.ProfileList.as_view()),
+    url(r'^api/projects/$', views.ProjectsList.as_view()),
    
 ]
 

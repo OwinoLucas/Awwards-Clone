@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile,Projects,Events
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import EventsSerializer
+from .serializer import EventsSerializer,ProfileSerializer,ProjectsSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
 
@@ -138,3 +138,31 @@ class EventDescription(APIView):
         event = self.get_event(pk)
         event.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class ProfileList(APIView):
+    def get(self, request, formart=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, formart=None):
+        serializers = ProfileSerializer(data=request.data)
+        permission_classes = (IsAdminOrReadOnly,)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ProjectsList(APIView):
+    def get(self, request, formart=None):
+        all_projects = Projects.objects.all()
+        serializers = ProjectsSerializer(all_projects, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, formart=None):
+        serializers = ProjectsSerializer(data=request.data)
+        permission_classes = (IsAdminOrReadOnly,)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
