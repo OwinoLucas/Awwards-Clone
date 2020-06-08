@@ -89,7 +89,12 @@ Open the application on your browser `127.0.0.1:8000`.
 
 ### Api Endpoints
 
-
+## Technical Requirements
+* Create a specs markdown file that lists down all the projects specifications.
+* All your models should contain unit tests to test the different behaviours. All your test should pass.
+* Your project should follow the proper folder structure.
+* Your project should be deployed to Heroku.
+* Your project should contain proper commit messages.
 
 ## Technology used
 
