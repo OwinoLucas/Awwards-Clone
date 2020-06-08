@@ -5,7 +5,11 @@
     </div>
 
     <ul class="list-unstyled components">
-        <p class="text-center">Logged in as {{user.username}}</p>
+
+        <div class="text-center"> <img class="rounded-circle account-img" width="70px" height="70px"
+                src="{{user.profile.profile_pic.url}}"><br>
+            <small>Logged in as {{user.username}}</small>
+        </div>
         <li class="active">
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account</a>
             {% if user.is_authenticated %}
