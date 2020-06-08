@@ -96,11 +96,12 @@ class Projects(models.Model):
         """
         self.delete()
 
-class Image(models.Model):
-    image = models.ImageField(upload_to='images/')
-    description = models.CharField(max_length=100, blank=True)
+class Events(models.Model):
+    event = models.CharField(max_length=100, blank=True)
+    description = models.TextField()
+    price = models.DecimalField(decimal_places=2, max_digits=20)
+
 
     def __str__(self):
-        return self.description
-
+        return self.event
 

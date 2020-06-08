@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm,UploadForm
 from django.contrib.auth.decorators import login_required
-from .models import Profile,Projects,Image
+from .models import Profile,Projects,Events
 
 # Create your views here.
 def register(request):

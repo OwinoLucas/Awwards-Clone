@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'clone.apps.CloneConfig',
     'bootstrap4',
     'star_ratings',
