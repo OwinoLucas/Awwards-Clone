@@ -12,7 +12,9 @@ def index(request):
     """
     view function renders the landing page
     """
-    return render(request, 'index.html')
+    current_user = request.user
+    all_projects = Projects.objects.all()
+    return render(request, 'index.html', {'all_projects':all_projects})
 
 def register(request):
     if request.method == 'POST':

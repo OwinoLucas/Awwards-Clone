@@ -14,7 +14,18 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <h1>Awwardss</h1>
+        <h2 class="text-center">All Projects</h2>
+        <h3 class="text-center">How do they rate ?</h3>
+        {% for project in all_projects %}
+        <a href="{% url 'project' project_id = project.id %}"><img src="{{project.project_image.url}}"
+                alt="project_image" style="width:100%" title="Click to view more details"></a>
+        <blockquote class="blockquote">
+            <p><b>{{project.project_name}}</b></p>
+            <p>{{project.description}}</p>
+            <footer class="blockquote-footer">{{project.created_at}}</footer>
+        </blockquote>
+        {% endfor %}
+
     </div>
 </div>
 
