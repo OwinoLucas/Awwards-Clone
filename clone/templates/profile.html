@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="container">
+    <legend class="border-bottom mb-4">Profile Info</legend>
     <div class="content-section">
         <div class="media">
             <div class="media-header">
@@ -21,18 +22,52 @@
                 <small>{{ user.profile.contact }}</small>
             </div>
         </div>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Profile Info</legend>
-                {% bootstrap_form u_form %}
-                {% bootstrap_form p_form %}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
-            </div>
-        </form>
 
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update">
+            Update Profile
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Profile Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                {% bootstrap_form u_form %}
+                                {% bootstrap_form p_form %}
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-outline-info" type="submit">Update</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h5 class="text-center">My Projects</h5>
+        <div class="container">
+            <a class="button btn-info" href="{%url 'post'%}"><b>+ </b>Add a Project</a><br>
+            {% for project in my_projects %}
+            <img src="{{project.project_image.url}}" alt="project_image" style="width: 100%;">
+            <blockquote class="blockquote">
+                <p><b>{{project.project_name}}</b></p>
+                <p>{{project.description}}</p>
+                <footer class="blockquote-footer">{{project.created_at}}</footer>
+            </blockquote>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

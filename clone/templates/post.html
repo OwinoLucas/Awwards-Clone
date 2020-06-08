@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Post a project</legend>
+            {% bootstrap_form uploadform %}
+        </fieldset>
+        <div class="form-group">
+            <input type="submit" class="btn btn-outline-info btn-sm" value="Post">
+        </div>
+        <input type="hidden" name="next" value="{{next}}">
+    </form>
+</div>
+{{form.media}}
+{% endblock %}
