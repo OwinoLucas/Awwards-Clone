@@ -5,6 +5,11 @@ from django.contrib import messages
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm,UploadForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile,Projects,Events
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import EventsSerializer
+from rest_framework import status
+
 
 # Create your views here.
 def register(request):
@@ -91,3 +96,16 @@ def upload_form(request):
     else:
         form = UploadForm()
     return render(request, 'post.html', {'uploadform': form})
+
+class EventList(APIView):
+    def get(self, request, formart=None):
+        all_events = Events.objects.all()
+        serializers = EventsSerializer(all_events, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, formart=None):
+        serializers = EventsSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
