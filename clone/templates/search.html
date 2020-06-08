@@ -3,23 +3,23 @@
 {% block content %}
 <div class="container">
 
-    <div class="card-columns">
-        {% if projects %}
-        {% for project in projects %}
-        <a href="{%url 'project' project_id=project.id%}"><img src="{{project.project_image.url}}" alt="project_image"
-                style="width:100%" title="Click to view more details"></a>
-        <blockquote class="blockquote text-right">
-            <h5 class="text-center">Project Details</h5>
-            <p>Name: {{project.project_name}}</p>
-            <p>Description: {{project.description}}</p>
-            <p>Github repo: {{project.github_repo}}</p>
+    {% if projects %}
+    {% for project in projects %}
 
-        </blockquote>
-        {% endfor %}
-        {% else %}
-        <h2 class="text-center""> Found 0 projects by the name {{message}}</h2>
+    <blockquote class="blockquote text-left mt-3">
+        <a href="{%url 'project' project_id=project.id%}"><img src="{{project.project_image.url}}" alt="project_image"
+                style="width:70%" title="Click to view more details"></a>
+        <h5>Project Details</h5>
+        <p>Name: {{project.project_name}}</p>
+        <p>Description: {{project.description}}</p>
+        <p>Github repo: {{project.github_repo}}</p>
+
+    </blockquote>
+    {% endfor %}
+    {% else %}
+    <h2 class="text-center""> Found 0 projects by the name {{message}}</h2>
         {% endif %}
-    </div>
+    
 
 </div>
 

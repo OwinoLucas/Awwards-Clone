@@ -63,7 +63,7 @@ def search_results(request):
         searched_projects = Projects.get_projects(project_search)
         message = f"{project_search}"
 
-        return render(request, 'search.html',{"message":message,"projects": searched_users})
+        return render(request, 'search.html',{"message":message,"projects": searched_projects})
 
     else:
         message = "You haven't searched for any user"
@@ -79,7 +79,7 @@ def project(request, project_id):
 
 @login_required(login_url='login')
 def upload_form(request):
-    current_user = request.user
+    current_user = request.user.profile
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
         if form.is_valid():

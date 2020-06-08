@@ -3,21 +3,21 @@
 {% block content %}
 <div class="container">
     <h4>{{project.project_name}}</h4>
-    <div class="card-img">
-        <img src="{{project.project_image.url}}" alt="project_image" style="width:100%">
-    </div>
-    <blockquote class="blockquote text-right">
-        <h5 class="text-center">Project Details</h5>
+
+    <blockquote class="blockquote text-left">
+        <div class="card-img">
+            <img src="{{project.project_image.url}}" alt="project_image" style="width:70%">
+        </div>
+        <h5>Project Details</h5>
         <p>Name: {{project.project_name}}</p>
         <p>Description: {{project.description}}</p>
         <p>Github repo: {{project.github_repo}}</p>
-        <br>
         <a href="{{project.url}}">Visit</a>
         <footer class="blockquote-footer">
             <p>Created at: {{project.created_at}}</p>
         </footer>
     </blockquote>
-    <article>How does {{project.project_name}} rate?</article>
+    <article class="text-center" style="font-size: larger;">How does {{project.project_name}} rate?</article>
 
 </div>
 

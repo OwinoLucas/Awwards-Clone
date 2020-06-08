@@ -49,7 +49,7 @@ class Projects(models.Model):
     class containing projects' objects
     """
     project_name = models.CharField(max_length=50, blank=True)
-    project_image = models.ImageField(upload_to='projectimages/', blank=True)
+    project_image = models.ImageField(blank=True, upload_to='projectimages/')
     description = models.TextField(max_length=300, blank=True)
     github_repo = models.CharField(max_length=150, blank=True)
     url = models.CharField(max_length=50, blank=True)
@@ -78,7 +78,7 @@ class Projects(models.Model):
 
     @classmethod
     def get_projects(cls,project_search):
-        project = cls.objects.filter(project__project_name__icontains=project_search)
+        project = cls.objects.filter(project_name__icontains=project_search)
         return project
 
 
