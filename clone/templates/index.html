@@ -13,19 +13,33 @@
 
         </div>
     </nav>
-    <div class="container">
-        <h2 class="text-center">All Projects</h2>
-        <h3 class="text-center">How do they rate ?</h3>
-        {% for project in all_projects %}
-        <a href="{% url 'project' project_id=project.id %}"><img src="{{project.projects.project_image.url}}"
-                alt="project_image" style="width:100%" title="Click to view more details"></a>
-        <blockquote class="blockquote">
-            <p><b>{{project.project_name}}</b></p>
-            <p>{{project.description}}</p>
-            <footer class="blockquote-footer">{{project.created_at}}</footer>
-        </blockquote>
-        {% endfor %}
+    <div class="container ">
+        <legend class="border-bottom mb-4 ">
+            <h2><strong>ALL PROJECTS</strong></h2>
+        </legend>
+        <legend class="border-bottom mb-4 ">
+            <h3><strong>How do they rate ?</strong></h3>
+        </legend>
 
+        {% for project in all_projects %}
+        <div style='box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);background-color:white;margin:auto;width:145%;'
+            class="card-img text-center ml-9">
+
+            <div class="card-img">
+                <blockquote class="blockquote">
+                    <a href=" {% url 'project' project_id=project.id %}"><img src="{{project.project_image.url}}"
+                            alt="project_image" style="width:70%" class="img-responsive"
+                            title="Click to view more details"></a>
+                    <legend>
+                        <p><b>{{project.project_name}}</b></p>
+                    </legend>
+                    <p>{{project.description}}</p>
+                    <footer class="blockquote-footer">{{project.created_at}} By: {{project.project_user}}</footer>
+                </blockquote>
+
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 

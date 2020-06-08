@@ -32,7 +32,7 @@ def index(request):
 
 @login_required(login_url='login')
 def profile(request):
-    current_user = request.user.profile
+    current_user = request.user
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST,instance=request.user)
         p_form = ProfileUpdateForm(request.POST,request.FILES,instance=request.user.profile)
@@ -86,6 +86,7 @@ def upload_form(request):
             image = form.save(commit=False)
             image.uploaded_by = current_user
             image.save()
+            messages.success(request, f'You have uploaded the project!')
             return redirect('index')
     else:
         form = UploadForm()

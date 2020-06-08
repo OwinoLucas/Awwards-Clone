@@ -53,7 +53,7 @@ class Projects(models.Model):
     description = models.TextField(max_length=300, blank=True)
     github_repo = models.CharField(max_length=150, blank=True)
     url = models.CharField(max_length=50, blank=True)
-    project_user = models.ForeignKey(Profile, on_delete=models.CASCADE, default=None)
+    project_user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
