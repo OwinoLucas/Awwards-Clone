@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clone.apps.CloneConfig',
     'bootstrap4',
-    'crispy_forms',
+    'star_ratings',
 ]
 
 MIDDLEWARE = [
@@ -66,10 +66,13 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                
             ],
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'awwards.wsgi.application'
 
@@ -134,3 +137,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = 'index'
 
 LOGIN_URL = 'login'
+
+STAR_RATINGS_RANGE=10
