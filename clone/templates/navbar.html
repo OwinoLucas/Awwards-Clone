@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <nav id="sidebar">
     <div class="sidebar-header">
-        <h1 class="text-center"><a href="/"><strong>Awwards</strong></a></h1>
+        <h1 class="text-center"><a href="/"><strong>Awwards Clone</strong></a></h1>
     </div>
 
     <ul class="list-unstyled components">
@@ -15,32 +15,26 @@
             {% if user.is_authenticated %}
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="/">Home</a>
+                    <a href="/"><i class="icon-home"></i> Home</a>
                 </li>
                 <li>
-                    <a href="{%url 'profile' %}">Profile</a>
+                    <a href="{%url 'profile' %}"> <i class="icon-user"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="{%url 'logout'%}">Logout</a>
+                    <a href="{%url 'logout'%}"> <i class="icon-off"></i> Logout</a>
                 </li>
             </ul>
         </li>
         {% else %}
         <li>
-            <a class='btn btn-default' href="{%url 'login'%}">Login</a>
+            <a class='btn btn-default' href="{%url 'login'%}"> <i class="icon-signin"></i> Login</a>
         </li>
         <li>
-            <a class='btn btn-default' href="{%url 'register'%}">Register</a>
+            <a class='btn btn-default' href="{%url 'register'%}"> <i class="icon-edit"></i> Register</a>
         </li>
 
         {% endif %}
-        <li>
-            <a href="#">About</a>
-        </li>
 
-        <li>
-            <a href="#">Portfolio</a>
-        </li>
         <!-- Adding a search form  -->
 
 
@@ -49,7 +43,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search project" name="projects">
                 <div class="input-group-btn">
-                    <button class="btn btn-success" type="submit">search</button>
+                    <button class="btn btn-success" type="submit"><i class="icon-search"></i></button>
                 </div>
             </div>
 

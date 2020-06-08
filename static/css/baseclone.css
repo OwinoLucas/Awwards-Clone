@@ -39,8 +39,8 @@ a[data-toggle="collapse"] {
 
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    font-family: 'Poppins', 'Courier New', Courier, monospace;
+    background-color: #e2f3f5;
 }
 
 p {
