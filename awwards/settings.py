@@ -31,15 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'clone.apps.CloneConfig',
+    'bootstrap4',
+    'star_ratings',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clone.apps.CloneConfig',
-    'bootstrap4',
-    'star_ratings',
+    
 ]
 
 MIDDLEWARE = [

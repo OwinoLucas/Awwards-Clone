@@ -81,6 +81,14 @@ class Projects(models.Model):
         project = cls.objects.filter(project_name__icontains=project_search)
         return project
 
+    @property
+    def project_image_url(self):
+        if self.project_image and hasattr(self.project_image, 'url'):
+            return self.project_image.url
+
+    class Meta:
+        ordering = ["-pk"]
+
 
     def delete_projects(self):
         """
