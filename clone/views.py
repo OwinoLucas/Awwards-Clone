@@ -111,3 +111,30 @@ class EventList(APIView):
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class EventDescription(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get_event(self,pk):
+        try:
+            return Events.objects.get(pk=pk)
+        except Events.DoesNotExist:
+            return Http404
+
+    def get(self, request, pk, format=None):
+        event = self.get_event(pk)
+        serializers = EventsSerializer(event)
+        return Response(serializers.data)
+
+    def put(self, request, pk, format=None):
+        event = self.get_event(pk)
+        serializers = EventsSerializer(event, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        event = self.get_event(pk)
+        event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
