@@ -47,6 +47,7 @@ Click [View Site](https://cloneawwards.herokuapp.com/) to visit the site
 - Profile - This endpoint should return all the user profiles with information such as the username, bio, projects of the user and profile picture
 - Projects- This endpoint should return information pertaining to all the projects posted in your application.
 ### Api Endpoints
+http://127.0.0.1:8000/api/projects
 
 ## Technical Requirements
 * Create a specs markdown file that lists down all the projects specifications.
