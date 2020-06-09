@@ -48,6 +48,7 @@ Click [View Site](https://cloneawwards.herokuapp.com/) to visit the site
 - Projects- This endpoint should return information pertaining to all the projects posted in your application.
 ### Api Endpoints
 http://127.0.0.1:8000/api/projects
+http://127.0.0.1:8000/api/events
 
 ## Technical Requirements
 * Create a specs markdown file that lists down all the projects specifications.
