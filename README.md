@@ -49,7 +49,7 @@ Click [View Site](https://cloneawwards.herokuapp.com/) to visit the site
 ### Api Endpoints
 http://127.0.0.1:8000/api/projects
 http://127.0.0.1:8000/api/events
-
+http://127.0.0.1:8000/api/profile
 ## Technical Requirements
 * Create a specs markdown file that lists down all the projects specifications.
 * All your models should contain unit tests to test the different behaviours. All your test should pass.
