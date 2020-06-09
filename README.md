@@ -10,14 +10,14 @@ Click [View Site](https://cloneawwards.herokuapp.com/) to visit the site
 ## Behavior Driven Development
 | Behavior            | Input                         | Output                        |
 | ------------------- | ----------------------------- | ----------------------------- |
-| View posted projects | None | Display all projects |
+| View posted projects | None | Display all projects with their details|
 | Authenticate users | text inputs | create a profile after reqistration and log in|
-| Star rate a project| click a button| user leaves a rating based on options provided|
+| Star rate a project| click on stars to rate a project| based on a users rating a tally is done automatically and displayed|
 ## Screenshots
 * Home Page
 ![Screenshot from 2020-06-09 01-38-16](https://user-images.githubusercontent.com/60548928/84087131-2ec40700-a9f2-11ea-8340-974e3f0b218f.png)
 * Projects page with ratings
-![Screenshot from 2020-06-09 01-38-31](https://user-images.githubusercontent.com/60548928/84087140-32f02480-a9f2-11ea-8bca-4fd643456219.png)
+![Screenshot from 2020-06-09 02-20-53](https://user-images.githubusercontent.com/60548928/84089543-e576b600-a9f7-11ea-9074-e1b52161d3ea.png)
 * Profile page
 ![Screenshot from 2020-06-09 01-38-40](https://user-images.githubusercontent.com/60548928/84087146-34215180-a9f2-11ea-9f84-3f584129739e.png)
 ## User Story
